@@ -1,0 +1,15 @@
+  ##### This is wrong #####
+  app.post("/submit", (req,res)=>{
+     console.log(req.body);
+     app.use(checkPass);
+ })
+
+
+
+ When defining a route handler, you should use the  middleware using the app.use() method outside of the route handler
+ or you can do this:
+
+
+app.post("/submit", checkPass, (req, res) => {
+    console.log(req.body);
+  });
